@@ -21,23 +21,18 @@ function getPosts() {
 	}
 
 	function formatPost(post) {
-		var date    = moment.unix(post['unix-timestamp']).format('MM.DD.YY'),
-		    content = post['regular-body'],
-		    type    = post.type;
+		var date     = moment.unix(post['unix-timestamp']).fromNow(),
+			date_alt = moment.unix(post['unix-timestamp']).format("MMMM Do, YYYY"),
+		    content  = post['regular-body'],
+		    type     = post.type;
 
 		// Format post based on post type
 		switch (type)
 		{
 		// Normal post
 		case "regular":
-			if (post['regular-title'] == null)
-			{
-				content = post['regular-body'];
-			} else {
-				content = '<h3>' + post['regular-title'] + '</h3>' + post['regular-body']
-			}
-
-			icon    = 'icon-align-left';
+			content = post['regular-body'];
+			// icon    = 'icon-align-left';
 			break;
 
 		// Link post
@@ -45,36 +40,36 @@ function getPosts() {
 			content = '<span class="link-text"><a href="' + post['link-url'] + 
 			          '" target="_blank">' + post['link-text'] + '</a></span>' +
 			          '<span class="link-description"> ' + post['link-description'] + '</span>';
-			icon    = 'icon-link';
+			// icon    = 'icon-link';
 			break;
 
 		// Video post
 		case "video":
 			content = '<div class="video-container">' + post['video-player-500'] + '</div><span class="video-caption">' + post['video-caption'] + '</span>';
-			icon    = 'icon-film';
+			// icon    = 'youtube-play';
 			break;
 
 		// Photo post
 		case "photo":
-			content = '<div class="photo"><img src="' + post['photo-url-1280'] + 
+			content = '<div class="photo-container"><img src="' + post['photo-url-1280'] + 
 			          '" alt=""></div>' +
 			          '<span class="photo-caption">' + post['photo-caption'] + '</span>';
-			icon    = 'icon-picture';
+			// icon    = 'icon-picture';
 			break;
 
 		case "quote":
 			content = '<blockquote>' + post['quote-text'] + '</blockquote>';
-			icon    = 'icon-quote-right';
+			// icon    = 'icon-quote-right';
 			break;
 
 		case "audio":
 			content = post['audio-player'] + '<span class="song-caption">' + post['audio-caption'] + '</span>';
-			icon    = 'icon-music';
+			// icon    = 'icon-music';
 			break;
 		}
 
 		// Send it to the view
-		$('#main').append('<div class="post"><span class="post-date">' + date + '</span><i class="' + icon + '"></i><div class="content">' + content + '</div></div>');
+		$('#posts').append('<div class="post"><div class="post-content">' + content + '</div><div class="post-date hover-reveal"><span>posted ' + date + '</span><span class="hover-target">' + date_alt + '</span></div></div>');
 
 		// Remove duplicate dates
 		// http://stackoverflow.com/a/2822974
@@ -82,7 +77,7 @@ function getPosts() {
 		// $('.post-date').each(function() {
 		// 	var txt = $(this).text();
 		// 	if (seen[txt])
-		// 		$(this).hide().next('content').addClass('bordered');
+		// 		$(this).text('');
 		// 	else
 		// 		seen[txt] = true;
 		// });

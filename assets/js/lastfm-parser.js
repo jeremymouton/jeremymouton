@@ -24,7 +24,7 @@ function getSongs() {
 
 
 		// Send it to the view
-		$('#latest_track').html('<a href="http://www.last.fm/user/halibuthero/tracks"><i class="icon-spotify" target="_blank"></i>' + lastfm.name + ' - <span class="artist">' + lastfm.artist['#text'] + '</span><br /> <span class="timeago">' + date + '</span></a>');
+		$('#latest-track').html('<a href="http://www.last.fm/user/halibuthero/tracks"><i class="icon-spotify-circled" target="_blank"></i>' + lastfm.name + ' - <span class="artist">' + lastfm.artist['#text'] + '</span><br /> <span class="timeago">' + date + '</span></a>');
 	});
 
 	setTimeout(getSongs, 30000);

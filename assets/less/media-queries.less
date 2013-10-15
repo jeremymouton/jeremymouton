@@ -1,0 +1,58 @@
+// ======================
+// MEDIA QUERIES
+// ======================
+
+// Large
+@media (min-width: @screen-lg) {
+	.container {
+		max-width: @screen-md;
+	}
+}
+
+// Standard
+@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+	
+}
+
+// Tablet
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+
+}
+
+// Smartphone
+@media (max-width: @screen-xs-max) {
+	.navbar-collapse {
+		li {
+			&:first-child {
+				a {
+					margin-left: 25px;
+				}
+			}
+		}
+	}
+
+	.navbar-nav {
+		margin: 7.5px 0 7.5px -10px;
+	}
+
+	li.spotify-feed {
+		float: left;
+		position: relative;
+		left: 50px;
+		padding-bottom: 10px;
+	}
+
+	ul.social {
+		float: left;
+		margin-top: 0;
+		margin-bottom: 15px;
+		
+		li {
+			&:first-child {
+				a {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}

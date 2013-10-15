@@ -1,0 +1,317 @@
+// ======================
+// MAIN STYLES
+// ======================
+
+body {
+	font-weight: 200;
+}
+
+a {
+	color: #d0650d;
+
+	// &:focus {}
+	// &:active {}
+	&:hover {
+		color: darken(#d0650d, 10%);
+		text-decoration: none;
+	}
+}
+
+// Header
+
+.header {
+	.at2x('@{imagePath}/header.jpg', 1876px, 359px);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: table;
+	width: 100%;
+	vertical-align: middle;
+
+	> .container {
+		display: table;
+		vertical-align: middle;
+		width: 100%;
+		float: none;
+		height: 260px;
+	}
+
+	a {
+		color: #fff;
+	}
+
+	.avatar {
+		display: table-cell;
+		vertical-align: middle;
+		padding-right: 20px;
+
+		img {
+			border: 10px solid #353132;
+			.border-radius(50%);
+		}
+	}
+
+	.avatar,
+	.about {
+		// padding-top: 20px;
+	}
+}
+
+.about {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-shadow: 0 1px 1px #000;
+	color: #fff;
+	
+	strong {
+		display: block;
+		font-size: 30px;
+		font-weight: 400;
+		margin-bottom: 6px;
+	}
+
+	.bio {
+		font-size: 19px;
+		line-height: 125%;
+	}
+
+	.tagline {
+		font-size: 16px;
+	}
+}
+
+// Main
+
+.main {
+	h1 {
+		color: #b4b8bb;
+		font-size: 38px;
+		font-weight: 200;
+		margin-top: 10px;
+		margin-bottom: 30px;
+	}
+}
+
+// Post
+
+#posts {
+	clear: both;
+
+	img {
+		width: 100%;
+	}
+}
+
+.post {
+	clear: both;
+	font-size: 15px;
+	color: #080909;
+	border-bottom: 1px solid #eee;
+	float: left;
+	width: 100%;
+	padding-bottom: 8px;
+	margin-bottom: 16px;
+
+	p {
+		padding: 0;
+		margin: 0;
+	}
+
+	[class^="-container"],
+	[class*="-container"] {
+		margin-bottom: 10px;
+	}
+
+	.post-content {
+		float: left;
+		font-weight: 200;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.post-date {
+		clear: both;
+		float: left;
+		font-size: 13px;
+		font-style: italic;
+		font-weight: 200;
+		color: #ccc;
+		display: block;
+		margin-top: 0px;
+	}
+}
+
+// Footer
+
+.footer {}
+
+// Nav
+
+.navbar-collapse {
+	padding: 0;
+	width: 100%;
+
+	.nav-inner {}
+
+	li {
+		a {
+			font-size: 15px;
+			font-weight: 500;
+			padding: 15px 25px;
+		}
+
+		&:first-child {
+			a {
+				padding-left: 0;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.navbar-default {
+	background: #fff;
+}
+
+.navbar-toggle {
+	outline: 0;
+}
+
+// Sticky nav
+
+// .navbar {
+// 	background: rgba(248, 248, 248, 0.94);
+
+// 	&.affix-top {}
+
+// 	&.affix {
+// 		top: 0;
+// 		width: 100%;
+// 	}
+
+// 	&.affix-bottom {}
+// }
+
+// ======================
+// MISC
+
+// Spotify feed
+
+li.spotify-feed {
+	float: right;
+	max-width: 200px;
+
+	a {
+		color: #ccc;
+		font-size: 12px;
+		font-weight: 200px;
+		padding: 0;
+		line-height: 100%;
+	}
+
+	i {
+		color: #81b71a;
+		display: inline-block;
+		font-size: 18px;
+		position: relative;
+		top: 6px;
+		margin-right: 4px;
+		margin-left: -30px;
+	}
+
+	.timeago {
+		font-size: 10px;
+		font-style: italic;
+		display: inline-block;
+		margin-top: 0px;
+		float: left;
+	}
+}
+
+// Social icons
+
+ul.social {
+	margin: 10px 0 0 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+	margin-bottom: 5px;
+	float: right;
+
+	li:last-child {
+		margin-right: 0;
+	}
+
+	li {
+		float: left;
+
+		a {
+			font-size: 22px;
+			padding: 2px;
+
+			i {
+				color: #ddd;
+			}
+
+			i.icon-linkedin {
+				&:hover {
+					color: #1783bc;
+				}
+			}
+
+			i.icon-github-circled {
+				&:hover {
+					color: #282828;
+				}
+			}
+
+			i.icon-twitter {
+				left: 2px;
+				position: relative;
+
+				&:hover {
+					color: #00aced;
+				}
+			}
+
+			i {
+				width: auto;
+				height: auto;
+				padding-top: 2px;
+			}
+		}
+	}
+}
+
+
+// Responsive youtube videos
+// source: http://avexdesigns.com/responsive-youtube-embed/ 
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// Spotify embed
+
+.spotify_audio_player {
+	height: 80px !important;
+	width: 100% !important;
+}
+.spotify_audio_player #widgetContainer #engageView,
+.spotify_audio_player #widgetContainer #mainContainer {
+	display: none !important;
+}
