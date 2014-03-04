@@ -9,8 +9,6 @@ body {
 a {
 	color: #d0650d;
 
-	// &:focus {}
-	// &:active {}
 	&:hover {
 		color: darken(#d0650d, 10%);
 		text-decoration: none;
@@ -20,19 +18,22 @@ a {
 // Header
 
 .header {
-	.at2x('@{imagePath}/header.jpg', 1876px, 359px);
+	.at2x('@{imagePath}/header.jpg', 1876px, 360px);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	// background-position: 0 -100px;
 	display: table;
 	width: 100%;
 	vertical-align: middle;
+	font-family: @altFont;
 
 	> .container {
-		display: table;
-		vertical-align: middle;
+		// display: table;
+		// vertical-align: middle;
 		width: 100%;
 		float: none;
-		height: 260px;
+		height: 360px;
+		text-align: center;
 	}
 
 	a {
@@ -40,14 +41,21 @@ a {
 	}
 
 	.avatar {
-		display: table-cell;
-		vertical-align: middle;
-		padding-right: 20px;
-
-		img {
-			border: 10px solid #353132;
-			.border-radius(50%);
-		}
+		// display: table-cell;
+		// vertical-align: middle;
+		// padding-right: 20px;
+		margin-top: 35px;
+		margin-bottom: 15px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		.at2x('@{imagePath}/avatar-small.jpg', 130px, 130px);
+		background-repeat: no-repeat;
+		text-align: center;
+		height: 150px;
+		width: 150px;
+		border: 10px solid #262626;
+		.border-radius(50%);
 	}
 
 	.avatar,
@@ -57,26 +65,37 @@ a {
 }
 
 .about {
-	display: table-cell;
-	vertical-align: middle;
+	// display: table-cell;
+	// vertical-align: middle;
 	width: 100%;
 	text-shadow: 0 1px 1px #000;
-	color: #fff;
 	
 	strong {
 		display: block;
-		font-size: 30px;
-		font-weight: 400;
+		font-size: 36px;
+		font-weight: 200;
 		margin-bottom: 6px;
+		color: #f8f8f8;
 	}
 
 	.bio {
-		font-size: 19px;
-		line-height: 125%;
+		font-size: 25px;
+		line-height: 135%;
+		color: #f8f8f8;
+		opacity: 0.9;
 	}
 
 	.tagline {
-		font-size: 16px;
+		color: #f8f8f8;
+		opacity: 0.9;
+		font-size: 17px;
+		font-style: italic;
+		margin-top: -10px;
+		
+		p {
+			padding: 0;
+			margin: 0;
+		}
 	}
 }
 
@@ -104,17 +123,29 @@ a {
 
 .post {
 	clear: both;
-	font-size: 15px;
 	color: #080909;
 	border-bottom: 1px solid #eee;
 	float: left;
 	width: 100%;
 	padding-bottom: 8px;
 	margin-bottom: 16px;
+	font-size: 16px;
+	font-weight: 400;
+	font-family: @altFont;
 
 	p {
 		padding: 0;
 		margin: 0;
+		line-height: 1.45;
+	}
+
+	[class^="icon-"],
+	[class*="icon-"] {
+		float: left;
+		font-size: 12px;
+		color: #ddd;
+		padding-top: 1px;
+		margin-right: 5px;
 	}
 
 	[class^="-container"],
@@ -130,14 +161,17 @@ a {
 	}
 
 	.post-date {
-		clear: both;
 		float: left;
 		font-size: 13px;
 		font-style: italic;
 		font-weight: 200;
-		color: #ccc;
+		color: #ddd;
 		display: block;
-		margin-top: 0px;
+		padding-top: 0px;
+
+		&:hover {
+			cursor: default;
+		}
 	}
 }
 
@@ -179,18 +213,18 @@ a {
 
 // Sticky nav
 
-// .navbar {
-// 	background: rgba(248, 248, 248, 0.94);
+.navbar {
+	background: rgba(248, 248, 248, 0.94);
 
-// 	&.affix-top {}
+	&.affix-top {}
 
-// 	&.affix {
-// 		top: 0;
-// 		width: 100%;
-// 	}
+	&.affix {
+		top: 0;
+		width: 100%;
+	}
 
-// 	&.affix-bottom {}
-// }
+	&.affix-bottom {}
+}
 
 // ======================
 // MISC

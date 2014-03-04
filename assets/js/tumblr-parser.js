@@ -2,6 +2,9 @@ $( function() {
 	getPosts();
 });	
 
+// DRIBBBLE
+// http://api.dribbble.com/players/jeremymouton/shots/
+
 function getPosts() {
 	// Post parser for Tumblr blogs.
 	// Change "blog_url" to pull in  a new feed. 
@@ -24,7 +27,9 @@ function getPosts() {
 		var date     = moment.unix(post['unix-timestamp']).fromNow(),
 			date_alt = moment.unix(post['unix-timestamp']).format("MMMM Do, YYYY"),
 		    content  = post['regular-body'],
-		    type     = post.type;
+		    tags     = post['tags'],
+		    type     = post.type,
+		    icon;
 
 		// Format post based on post type
 		switch (type)
@@ -33,6 +38,10 @@ function getPosts() {
 		case "regular":
 			content = post['regular-body'];
 			// icon    = 'icon-align-left';
+			if ( $.inArray( "Twitter", tags ) != '-1' ) {
+				icon    = 'icon-twitter';
+			}
+
 			break;
 
 		// Link post
@@ -69,7 +78,7 @@ function getPosts() {
 		}
 
 		// Send it to the view
-		$('#posts').append('<div class="post"><div class="post-content">' + content + '</div><div class="post-date hover-reveal"><span>posted ' + date + '</span><span class="hover-target">' + date_alt + '</span></div></div>');
+		$('#posts').append('<div class="post"><div class="post-content">' + content + '</div><i class="' + icon + '"></i><div class="post-date hover-reveal"><span>posted ' + date + '</span><span class="hover-target">' + date_alt + '</span></div></div>');
 
 		// Remove duplicate dates
 		// http://stackoverflow.com/a/2822974
