@@ -20,11 +20,16 @@ function getSongs() {
 
 		// Date formating
 		// Returns "now playing" or time ago.
-		(typeof lastfm.date != 'undefined') ? date = 'played ' + moment.unix(lastfm.date.uts).fromNow() : date = 'now playing...';
-
+		if (typeof lastfm.date != 'undefined') {
+			pre = 'Last listened to'
+			date = ' ' + moment.unix(lastfm.date.uts).fromNow();
+		} else {
+			pre = 'Currently listening to';
+			date = '';
+		}
 
 		// Send it to the view
-		$('#latest_track').html('<a href="http://www.last.fm/user/halibuthero/tracks"><i class="icon-spotify" target="_blank"></i>' + lastfm.name + ' - <span class="artist">' + lastfm.artist['#text'] + '</span><br /> <span class="timeago">' + date + '</span></a>');
+		$('#latest_track').html(pre + ' <a href="http://www.last.fm/user/halibuthero/tracks">' + lastfm.name + ' by <span class="artist">' + lastfm.artist['#text'] + '</span></a>'+ date + '.');
 	});
 
 	setTimeout(getSongs, 30000);

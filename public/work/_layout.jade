@@ -24,12 +24,16 @@ body
 
 		.dark-bg
 			.container.main
+				.section-head
+					h1 Work
+						p View more on 
+							a(href="#{github}") Github
 				.project
 					.project-screenshots
 						!= yield
 
 					.project-description
-						h1 #{ title }
+						h2 #{ title }
 
 						p: a.url(href="http://#{ url }") #{ url }
 
