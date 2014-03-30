@@ -1,9 +1,10 @@
 {
 	"globals": {
 		"title": "Jeremy Mouton",
-		"site_url": "http://localhost:9000",
-		"img_url": "http://localhost:9000/assets/images",
-		"js_url": "http://localhost:9000/assets/js",
+		"site_url": "",
+		"site_url_live": "http:jeremymouton.com",
+		"img_url": "/assets/images",
+		"js_url": "/assets/js",
 		"github": "https://github.com/jeremymouton",
 		"twitter": "https://twitter.com/jeremymouton",
 		"linkedin": "https://www.linkedin.com/in/jeremymouton"

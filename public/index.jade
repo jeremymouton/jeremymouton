@@ -27,9 +27,9 @@
 				if work.layout !== "../_layout"
 					.item
 						.thumb
-							a(href="/work/#{slug}") 
+							a(href="/work/#{slug}.html") 
 								img(src="#{ work.img }")
-						p: strong.title: a(href="/work/#{slug}")= work.title
+						p: strong.title: a(href="/work/#{slug}.html")= work.title
 						p.stack= work.stack
 						p.desc= work.desc 
 							span.date  (
