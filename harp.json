@@ -1,7 +1,8 @@
 {
 	"globals": {
 		"title": "Jeremy Mouton",
-		"site_url": "",
+		"description": "Jeremy Mouton's personal site and thoughtbox - on code, design and life.",
+		"site_url": "/",
 		"site_url_live": "http:jeremymouton.com",
 		"img_url": "/assets/images",
 		"js_url": "/assets/js",
