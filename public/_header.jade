@@ -1,0 +1,21 @@
+.header
+	.container
+		nav
+			.navbar-header
+				button.navbar-toggle(type="button" data-toggle="collapse" data-target=".topnav-collapse")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.brand(href="#{site_url}") 
+					.hex
+						span JM
+					.hex-shadow
+
+			div.topnav-collapse.collapse
+				ul.nav.navbar-right
+					li: a(href="#{site_url}/work") Work
+					li: a(href="#{site_url}/feed") Feed
+					li: a(href="#{twitter}") Twitter
+					li: a(href="#{github}") Github
+					li: a(href="#{linkedin}") Linkedin

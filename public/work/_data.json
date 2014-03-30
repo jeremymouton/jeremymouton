@@ -1,0 +1,29 @@
+{
+  "index": {
+    "layout": "../_layout"
+  },
+  "cointipper": {
+    "title": "Cointipper",
+    "img": "/assets/images/work/cointipper.png",
+    "url": "jeremymouton.github.io/cointipper/",
+    "stack": "sinatra (ruby), jQuery",
+    "desc": "Tipping/Donation plugin for cryptocurrencies like Bitcoin or Dogecoin.",
+    "date": "2014"
+  },
+  "peterson-landing": {
+    "title": "Peterson Development",
+    "img": "/assets/images/work/peterson-landing.png",
+    "url": "peterson-development.com",
+    "stack": "html, css, php",
+    "desc": "Landing page for Peterson Development in Salt Lake City, Utah.",
+    "date": "2013"
+  },
+  "pairlet": {
+    "title": "Pairlet",
+    "img": "/assets/images/work/pairlet.png",
+    "url": "pairlet.com",
+    "stack": "ruby on rails, css, js",
+    "desc": "Rails application to match social media handles and notify users on match.",
+    "date": "2012"
+  }
+}

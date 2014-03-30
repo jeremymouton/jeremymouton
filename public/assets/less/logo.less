@@ -1,0 +1,99 @@
+// ======================
+// LOGO
+// ======================
+
+nav .brand {
+	&:extend(.navbar-brand);
+	color: @dark;
+	font-size: 76px;
+	text-decoration: none;
+	width: auto;
+	padding: 0;
+	line-height: 70%;
+
+	.hex {
+		position: relative;
+	}
+
+	span {
+		color: @light;
+		.poly;
+		font-size: 12px;
+		letter-spacing: 0.02em;
+		position: absolute;
+		left: 13px;
+		top: 7px;
+		line-height: 100%;
+		font-weight: bold;
+	}
+}
+
+
+// Hexagon
+
+@hex-color:  @dark;
+@hex-shadow: #ced4da;
+@zoom-out:   2.46;
+
+.hex:before {
+	content: " ";
+	width: 0; height: 0;
+	border-bottom: (30px / @zoom-out) solid @hex-color;
+	border-left: (52px / @zoom-out) solid transparent;
+	border-right: (52px / @zoom-out) solid transparent;
+	position: absolute;
+	top: -(30px / @zoom-out);
+}
+
+.hex {
+	margin-top: (30px / @zoom-out);
+	width: (104px / @zoom-out);
+	height: (60px / @zoom-out);
+	background-color: @hex-color;
+	position: relative;
+	z-index: 2;
+}
+
+.hex:after {
+	content: "";
+	width: 0;
+	position: absolute;
+	bottom: -(30px / @zoom-out);
+	border-top: (30px / @zoom-out) solid @hex-color;
+	border-left: (52px / @zoom-out) solid transparent;
+	border-right: (52px / @zoom-out) solid transparent;
+}
+
+
+// Hex Shadow
+
+.hex-shadow:before {
+	content: " ";
+	width: 0; height: 0;
+	border-bottom: (30px / @zoom-out) solid @hex-shadow;
+	border-left: (52px / @zoom-out) solid transparent;
+	border-right: (52px / @zoom-out) solid transparent;
+	position: absolute;
+	top: -(30px / @zoom-out);
+}
+
+.hex-shadow {
+	margin-top: (30px / @zoom-out);
+	width: (104px / @zoom-out);
+	height: (60px / @zoom-out);
+	background-color: @hex-shadow;
+	position: absolute;
+	left: 1px;
+	top: 3px;
+	z-index: 1;
+}
+
+.hex-shadow:after {
+	content: "";
+	width: 0;
+	position: absolute;
+	bottom: -(30px / @zoom-out);
+	border-top: (30px / @zoom-out) solid @hex-shadow;
+	border-left: (52px / @zoom-out) solid transparent;
+	border-right: (52px / @zoom-out) solid transparent;
+}

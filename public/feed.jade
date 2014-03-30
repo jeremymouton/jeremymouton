@@ -1,0 +1,8 @@
+.container.main
+	.feed
+		#posts.cols
+
+script.
+	$.getJSON('http://jeremymouton.tumblr.com/api/read/json?callback=?', function(data) {
+		getPosts(data.posts);
+	});
