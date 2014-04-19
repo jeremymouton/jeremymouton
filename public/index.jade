@@ -1,42 +1,16 @@
-.light-bg
-	.container.main
-		.welcome
-			h1 Jeremy 
-				strong Mouton
-
-				span 
-					:markdown
-						**Front-End** Developer at [Aspen Digital](http://aspendigital.com) in Salt Lake City, Utah.
-
-	.container
-		.row
-			.content.recent
-				h1 Recent
-				#posts
-
 .container.main
-	.work
-		.section-head
-			h1 Work
-			p View more on 
-				a(href="#{github}") Github
+	.row
+		.content.align-center
+			.page-header
+				h1 Jeremy Mouton
+				span Front-end developer at 
+					a(href="#{site_url}") Aspen Digital 
+					| in Salt Lake City, Utah.
 
 
-		.work-items
-			for work, slug in public.work._data
-				if work.layout !== "../_layout"
-					.item
-						.thumb
-							a(href="/work/#{slug}.html") 
-								img(src="#{ work.img }")
-						p: strong.title: a(href="/work/#{slug}.html")= work.title
-						p.stack= work.stack
-						p.desc= work.desc 
-							span.date  (
-								= work.date 
-								)
+			ul.inline.social
+				li: a(href="#{twitter}") Twitter
+				li: a(href="#{github}") Github
+				li: a(href="#{linkedin}") Linkedin
 
-script.
-	$.getJSON('http://jeremymouton.tumblr.com/api/read/json?callback=?', function(data) {
-		getRecentPosts(data.posts, 4);
-	});
+			#latest_track

@@ -28,35 +28,21 @@ head
 	meta(name="msapplication-TileColor" content="#e4eaf0")
 	meta(name="msapplication-TileImage" content="#{site_url}assets/ico/mstile-144x144.png")
 
-	script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js')
-	script.
-		window.jQuery || document.write('<script src="#{js_url}/vendor/jquery-2.0.2.min.js"><\/script>')
-	script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js')
-	script(src='#{js_url}/vendor/tumblr-parser.js')
+	body
+		.wrapper
+			!= partial("_header")
 
-body
-	.wrapper
-		!= partial("_header")
+			!= yield
 
-		!= yield
-
-		.dark-bg
 			!= partial("_footer")
 
-	script(src='#{js_url}/vendor/bootstrap.min.js')
-	script(src='#{js_url}/plugins.js')
-	script(src='#{js_url}/main.js')
-	script(src='#{js_url}/vendor/retina-1.1.0.min.js')
-	script(src='#{js_url}/vendor/lastfm-parser.js')
-	script(src='//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.7/fastclick.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js')
+		script.
+			window.jQuery || document.write('<script src="#{js_url}/vendor/jquery-2.0.2.min.js"><\/script>')
 
-	script.
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-4714937-19']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
+		script(src='#{js_url}/vendor/bootstrap.min.js')
+		script(src='#{js_url}/plugins.js')
+		script(src='#{js_url}/main.js')
+		script(src='#{js_url}/vendor/retina-1.1.0.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js')
+		script(src='#{js_url}/vendor/lastfm-parser.min.js')
