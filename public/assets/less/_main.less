@@ -74,9 +74,16 @@ a {
 	font-size: 41px;
 	font-weight: 400;
 	text-transform: uppercase;
+	line-height: 100%;
 
 	span {
 		font-weight: 900;
+	}
+
+	@media (max-width: @screen-xs-max) {
+		span {
+			display: block;
+		}
 	}
 }
 

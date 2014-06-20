@@ -9,7 +9,7 @@ head
 	meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
 	title #{title}
 	meta(name='description', content='#{description}')
-	meta(name='viewport', content='width=device-width, initial-scale=1')
+	meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
 	link(rel='stylesheet', href='/assets/less/styles.css')
 
 	link(rel="apple-touch-icon" sizes="57x57" href="#{site_url}assets/ico/apple-touch-icon-57x57.png")
@@ -42,6 +42,7 @@ head
 
 		script(src='#{js_url}/vendor/retina-1.1.0.min.js')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js')
 		script(src='#{js_url}/vendor/lastfm-parser.min.js')
 
 		script.
