@@ -36,13 +36,10 @@ head
 
 			!= partial("_footer")
 
-		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js')
+		script(src='//code.jquery.com/jquery-1.11.0.min.js')
 		script.
-			window.jQuery || document.write('<script src="#{js_url}/vendor/jquery-2.0.2.min.js"><\/script>')
+			window.jQuery || document.write('<script src="#{js_url}/vendor/jquery-1.11.0.min.js"><\/script>')
 
-		script(src='#{js_url}/vendor/bootstrap.min.js')
-		script(src='#{js_url}/plugins.js')
-		script(src='#{js_url}/main.js')
 		script(src='#{js_url}/vendor/retina-1.1.0.min.js')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js')
 		script(src='#{js_url}/vendor/lastfm-parser.min.js')
