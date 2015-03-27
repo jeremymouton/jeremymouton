@@ -1,0 +1,122 @@
+// ======================
+// Project: jeremymouton.com
+// Author: Jeremy Mouton
+// ======================
+
+@bower_components: '../components';
+
+// ======================
+// COMPONENTS
+
+// Google Fonts
+// Montserrat
+@import (less) "//fonts.googleapis.com/css?family=Montserrat:400,700";
+
+// Normalize
+@import (less) "@{bower_components}/normalize.css/normalize.css";
+
+
+// ======================
+// MAIN STYLES
+
+// vars
+
+@primary-text-color: #285c79;
+@secondary-text-color: #99b2c1;
+
+// helpers
+
+.font-smoothing() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+}
+
+
+body {
+	background: #f3f5f6;
+	color: @primary-text-color;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	text-align: center;
+	.font-smoothing();
+}
+
+a {
+	color: @primary-text-color;
+}
+
+h1 {
+	font-size: 30px;
+	line-height: 120%;
+}
+
+.main {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.initials {
+	color: @secondary-text-color;
+	font-size: 28px;
+	font-weight: 700;
+	letter-spacing: -2px;
+	margin: 80px auto;
+}
+
+ul.social-links {
+	list-style: none;
+	padding: 0;
+	margin: 50px 0 120px 0;
+
+	li {
+		display: inline-block;
+		font-size: 13px;
+		margin: 0 15px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	
+	a {
+		color: @secondary-text-color;
+		transition: color .2s ease;
+		text-decoration: none;
+
+		&:hover {
+			color: @primary-text-color;
+		}
+	}
+}
+
+
+// ======================
+// Latest track
+
+.latest-track {
+	color: @secondary-text-color;
+	font-size: 11px;
+	padding-bottom: 40px;
+
+	a {
+		color: @secondary-text-color;
+		text-decoration: none;
+		transition: color .2s ease;
+
+		&:hover {
+			color: @primary-text-color;
+		}
+	}
+}
+
+.latest-track__artist {
+	font-weight: 700;
+}
+
+
+// ======================
