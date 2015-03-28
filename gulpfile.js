@@ -25,7 +25,7 @@ gulp.task('css', function() {
       return 'Error compiling LESS: ' + error.message;
     })))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('public/assets/css'));
+    .pipe(gulp.dest('assets/css'));
 
   return stream
     .pipe(minifycss())
@@ -35,7 +35,7 @@ gulp.task('css', function() {
       }
     }))
     .pipe(bless())
-    .pipe(gulp.dest('public/assets/css'))
+    .pipe(gulp.dest('assets/css'))
     .pipe(notify({ message: 'Successfully compiled LESS' }));
 });
 
@@ -52,21 +52,21 @@ gulp.task('js', function() {
     .pipe(concat('script.js'));
 
   return stream
-    .pipe(gulp.dest('public/assets/js'))
+    .pipe(gulp.dest('assets/js'))
     .pipe(uglify({ outSourceMap: true }))
     .pipe(rename(function (path) {
       if(path.extname === '.js') {
         path.basename += '.min';
       }
     }))
-    .pipe(gulp.dest('public/assets/js'))
+    .pipe(gulp.dest('assets/js'))
     .pipe(notify({ message: 'Successfully compiled JavaScript' }));
 });
 
 // Rimraf
 gulp.task('rimraf', function() {
   return gulp
-    .src(['public/assets/css', 'public/assets/js'], {read: false})
+    .src(['assets/css', 'assets/js'], {read: false})
     .pipe(rimraf());
 });
 
@@ -86,6 +86,6 @@ gulp.task('watch', function() {
 
   // Livereload
   livereload.listen();
-  gulp.watch('public/assets/**/*').on('change', livereload.changed);
+  gulp.watch('assets/**/*').on('change', livereload.changed);
   
 });
