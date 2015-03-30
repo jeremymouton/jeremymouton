@@ -13,20 +13,20 @@ function getSongs() {
 
 	$.getJSON(lastfm_feed, function(data) {
 		var lastfm   = data.recenttracks.track[0],
-            date,
+            date = '',
             pre;
 
 		// Date formating
 		// Returns "now playing" or time ago.
 		if (typeof lastfm.date != 'undefined') {
 			pre = 'Last listened to';
-			date = moment.unix(lastfm.date.uts).fromNow();
+			date = '' + moment.unix(lastfm.date.uts).fromNow();
 		} else {
 			pre = 'Currently listening to';
 		}
 
 		// Send it to the view
-		$('[data-latest-track]').html(pre + ' <a href="//www.last.fm/user/halibuthero/tracks" target="_blank">' + lastfm.name + ' by <span class="latest-track__artist">' + lastfm.artist['#text'] + '</span></a> ' + date + '.');
+		$('[data-latest-track]').html(pre + ' <a href="//www.last.fm/user/halibuthero/tracks" target="_blank">' + lastfm.name + ' by <span class="latest-track__artist">' + lastfm.artist['#text'] + '</span></a>' + date + '.');
 	});
 
 	setTimeout(getSongs, 10000);
