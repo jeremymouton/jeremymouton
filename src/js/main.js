@@ -20,7 +20,7 @@ function getSongs() {
 		// Returns "now playing" or time ago.
 		if (typeof lastfm.date != 'undefined') {
 			pre = 'Last listened to';
-			date = '' + moment.unix(lastfm.date.uts).fromNow();
+			date = ' ' + moment.unix(lastfm.date.uts).fromNow();
 		} else {
 			pre = 'Currently listening to';
 		}
