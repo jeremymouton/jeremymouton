@@ -411,8 +411,6 @@ h1 {
 }
 .hero a {
   display: inline-block;
-  -webkit-transition: color .2s ease;
-          transition: color .2s ease;
 }
 .hero a:after {
   -webkit-transition: width .2s ease;
