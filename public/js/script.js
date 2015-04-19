@@ -13417,7 +13417,7 @@ function getSongs() {
 		}
 
 		// Send it to the view
-		$('[data-latest-track]').html(pre + ' <a href="//www.last.fm/user/halibuthero/tracks" target="_blank">' + lastfm.name + ' by <span class="latest-track__artist">' + lastfm.artist['#text'] + '</span></a>' + date + '.');
+		$('[data-latest-track]').html(pre + ' <a href="//www.last.fm/user/halibuthero/tracks" target="_blank">' + lastfm.name + ' by <span class="latest-track__artist">' + lastfm.artist['#text'] + '</span></a>' + date );
 	});
 
 	setTimeout(getSongs, 10000);

@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYC3USBnSvpkopQaUR-2r7iU.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
   font-weight: 700;
   src: local('Montserrat-Bold'), url(http://fonts.gstatic.com/s/montserrat/v6/IQHow_FEYlDC4Gzy_m8fcvEr6Hm6RMS0v1dtXsGir4g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 400;
+  src: local('RobotoDraft'), local('RobotoDraft-Regular'), url(http://fonts.gstatic.com/s/robotodraft/v4/0xES5Sl_v6oyT7dAKuoni50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -365,11 +365,14 @@ td,
 th {
   padding: 0;
 }
+html,
+body {
+  font-size: 15px;
+}
 body {
   background: #f3f5f6;
   color: #285c79;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-family: 'RobotoDraft', sans-serif;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -377,10 +380,14 @@ body {
 }
 a {
   color: #285c79;
+  text-decoration: none;
 }
 h1 {
-  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
   line-height: 120%;
+  margin-bottom: 30px;
 }
 .main {
   padding-left: 20px;
@@ -388,10 +395,35 @@ h1 {
 }
 .initials {
   color: #99b2c1;
+  font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -2px;
-  margin: 80px auto;
+  margin: 40px auto;
+}
+@media (min-width: 480px) {
+  .initials {
+    margin: 80px auto;
+  }
+}
+.hero p {
+  line-height: 1.4em;
+}
+.hero a {
+  display: inline-block;
+  -webkit-transition: color .2s ease;
+          transition: color .2s ease;
+}
+.hero a:after {
+  -webkit-transition: width .2s ease;
+          transition: width .2s ease;
+  content: '';
+  display: block;
+  border-bottom: 1px #99b2c1 solid;
+  width: 0;
+}
+.hero a:hover:after {
+  width: 100%;
 }
 ul.social-links {
   list-style: none;
