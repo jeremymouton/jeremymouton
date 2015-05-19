@@ -5,6 +5,10 @@
 
 $( function() {
 	getSongs();
+
+	$('.hero em').on('click', function() {
+		$('.latest-track').toggleClass('is-visible');
+	});
 });
 
 function getSongs() {

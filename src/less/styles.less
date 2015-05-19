@@ -4,47 +4,99 @@
 // ======================
 
 @bower_components: '../components';
+@fontPath: '../fonts';
 
 // ======================
 // COMPONENTS
 
-// Google Fonts
-// Montserrat
-@import (less) "//fonts.googleapis.com/css?family=Montserrat:700";
-@import (less) "//fonts.googleapis.com/css?family=RobotoDraft:400";
-// @import (less) "//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic";
+// ======================
+// Bootstrap
 
-// Normalize
-@import (less) "@{bower_components}/normalize.css/normalize.css";
+@import (reference) "@{bower_components}/bootstrap/less/variables.less";
+@import (reference) "@{bower_components}/bootstrap/less/mixins.less";
+@import "@{bower_components}/bootstrap/less/normalize.less";
+@import "@{bower_components}/bootstrap/less/print.less";
+@import (reference) "@{bower_components}/bootstrap/less/grid.less";
 
 
 // ======================
-// MAIN STYLES
+// Fonts
 
-// vars
+// Montserrat
+// Light, Regular, Bold
 
-@primary-text-color: #285c79;
-@secondary-text-color: #99b2c1;
-
-// helpers
-
-.font-smoothing() {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-smoothing: antialiased;
+@font-face {
+  font-family: 'montserratbold';
+  src: url('@{fontPath}/montserrat-bold-webfont.eot');
+  src: url('@{fontPath}/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('@{fontPath}/montserrat-bold-webfont.woff2') format('woff2'),
+       url('@{fontPath}/montserrat-bold-webfont.woff') format('woff'),
+       url('@{fontPath}/montserrat-bold-webfont.ttf') format('truetype'),
+       url('@{fontPath}/montserrat-bold-webfont.svg#montserratbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
+.montserrat-bold() { font-family: 'montserratbold', sans-serif; }
+
+@font-face {
+  font-family: 'montserratlight';
+  src: url('@{fontPath}/montserrat-light-webfont.eot');
+  src: url('@{fontPath}/montserrat-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('@{fontPath}/montserrat-light-webfont.woff2') format('woff2'),
+       url('@{fontPath}/montserrat-light-webfont.woff') format('woff'),
+       url('@{fontPath}/montserrat-light-webfont.ttf') format('truetype'),
+       url('@{fontPath}/montserrat-light-webfont.svg#montserratlight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.montserrat-light() { font-family: 'montserratlight', sans-serif; }
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url('@{fontPath}/montserrat-regular-webfont.eot');
+  src: url('@{fontPath}/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('@{fontPath}/montserrat-regular-webfont.woff2') format('woff2'),
+       url('@{fontPath}/montserrat-regular-webfont.woff') format('woff'),
+       url('@{fontPath}/montserrat-regular-webfont.ttf') format('truetype'),
+       url('@{fontPath}/montserrat-regular-webfont.svg#montserratregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.montserrat() { font-family: 'montserratregular', sans-serif; }
+
+
+// ======================
+// MAIN
+
+// ======================
+// Variables
+
+@primary-text-color: #99b2c1;
+@secondary-text-color: #365362;
+@callout-text-color: #05b9da;
+
+// ======================
+// Base
 
 html,
-body {
-	font-size: 15px;
-}
+body { font-size: 24px; }
 
 body {
 	background: #f3f5f6;
 	color: @primary-text-color;
-	font-family: 'RobotoDraft', sans-serif;
-	text-align: center;
-	.font-smoothing();
+	.montserrat-light();
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	background-color: #0f1217;
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAuNSUiIHgyPSI1MCUiIHkyPSItMC41MDAwMDAwMDAwMDAwMSUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZjBmM2Y1IiBzdG9wLW9wYWNpdHk9IjEiLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjJmNGY2IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgPC9saW5lYXJHcmFkaWVudD4KCjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
+	background-image: -moz-linear-gradient(bottom, #f0f3f5 -0.5%, #f2f4f6 100.5%);
+	background-image: -o-linear-gradient(bottom, #f0f3f5 -0.5%, #f2f4f6 100.5%);
+	background-image: -webkit-linear-gradient(bottom, #f0f3f5 -0.5%, #f2f4f6 100.5%);
+	background-image: linear-gradient(bottom, #f0f3f5 -0.5%, #f2f4f6 100.5%);
 }
 
 a {
@@ -52,80 +104,106 @@ a {
 	text-decoration: none;
 }
 
+.container { max-width: 720px; }
+
+.main {
+	&:extend(.container);
+}
+
+// ======================
+// Headings
+
 h1 {
-	font-family: 'Montserrat', sans-serif;
-	font-size: 24px;
-	font-weight: 700;
+	font-size: 1rem;
 	line-height: 120%;
 	margin-bottom: 30px;
 }
 
-.main {
-	padding-left: 20px;
-	padding-right: 20px;
+
+// ======================
+// Header
+
+.header {
+	&:extend(.container);
+	margin: 1.667em auto 5em auto;
 }
 
 .initials {
-	color: @secondary-text-color;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 28px;
-	font-weight: 700;
-	letter-spacing: -2px;
-	margin: 40px auto;
-
-	@media (min-width: 480px) {
-		margin: 80px auto;
-	}
-}
-
-.hero {
-	p {
-		line-height: 1.4em;
-	}
-
-	a {
-		display: inline-block;
-
-		&:after {
-			transition: width .2s ease;
-			content: '';
-			display: block;
-			border-bottom: 1px @secondary-text-color solid;
-			width: 0;
-		}
-
-		&:hover:after {
-			width: 100%;
-		}
-	}
+	.montserrat-bold();
+	color: @callout-text-color;
+	font-size: 30px;
+	display: inline-block;
+	margin-right: 50px;
 }
 
 ul.social-links {
 	list-style: none;
 	padding: 0;
-	margin: 50px 0 120px 0;
+	display: inline-block;
 
 	li {
 		display: inline-block;
 		font-size: 13px;
 		margin: 0 15px;
 
-		&:first-child {
-			margin-left: 0;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
+		&:first-child { margin-left: 0; }
+		&:last-child  { margin-right: 0; }
 	}
 	
 	a {
-		color: @secondary-text-color;
+		.montserrat();
+		color: @primary-text-color;
+		display: inline-block;
 		transition: color .2s ease;
 		text-decoration: none;
 
-		&:hover {
-			color: @primary-text-color;
+		&:after {
+			transition: width .2s ease;
+			content: '';
+			display: block;
+			border-bottom: 1px @callout-text-color solid;
+			width: 0;
+		}
+
+		&:hover:after { width: 100%; }
+	}
+}
+
+
+// ======================
+// Hero
+
+.hero {
+	font-size: 49px;
+
+	@media (max-width: @screen-xs-max) {
+		font-size: 32px;
+	}
+
+	h1 {
+		color: @secondary-text-color;
+		font-weight: normal;
+		margin-bottom: 35px;
+		font-size: 1em;
+
+		span {
+			display: block;
+			font-size: 1.15em;
+		}
+
+		em {
+			.montserrat();
+			font-style: normal;
+			color: @callout-text-color;
+			text-transform: lowercase;
+		}
+	}
+
+	p {
+		font-size: 0.47em;
+
+		@media (max-width: @screen-xs-max) {
+			font-size: 0.6em;
 		}
 	}
 }
@@ -135,23 +213,26 @@ ul.social-links {
 // Latest track
 
 .latest-track {
-	color: @secondary-text-color;
-	font-size: 11px;
+	margin-top: 2rem;
+	font-size: 0.5em;
+	color: lighten(@primary-text-color, 5%);
 	padding-bottom: 40px;
+	transition: opacity .2s ease;
+	opacity: 0;
 
 	a {
-		color: @secondary-text-color;
+		color: lighten(@primary-text-color, 5%);
 		text-decoration: none;
 		transition: color .2s ease;
 
-		&:hover {
-			color: @primary-text-color;
-		}
+		&:hover { color: @primary-text-color; }
+	}
+
+	&.is-visible {
+		opacity: 1;
 	}
 }
 
-.latest-track__artist {
-	font-weight: 700;
-}
+.latest-track__artist { .montserrat-bold(); }
 
 // ======================
