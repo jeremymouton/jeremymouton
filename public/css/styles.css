@@ -327,7 +327,12 @@ h1 {
   margin-bottom: 30px;
 }
 .header {
-  margin: 1.667em auto 5em auto;
+  margin: 0.5em auto 2em auto;
+}
+@media (min-width: 768px) {
+  .header {
+    margin: 1.667em auto 5em auto;
+  }
 }
 .initials {
   font-family: 'montserratbold', sans-serif;
@@ -372,11 +377,11 @@ ul.social-links a:hover:after {
   width: 100%;
 }
 .hero {
-  font-size: 49px;
+  font-size: 38px;
 }
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .hero {
-    font-size: 32px;
+    font-size: 49px;
   }
 }
 .hero h1 {
@@ -396,11 +401,11 @@ ul.social-links a:hover:after {
   text-transform: lowercase;
 }
 .hero p {
-  font-size: 0.47em;
+  font-size: 0.5em;
 }
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .hero p {
-    font-size: 0.6em;
+    font-size: 0.47em;
   }
 }
 .latest-track {

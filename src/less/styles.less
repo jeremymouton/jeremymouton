@@ -125,7 +125,11 @@ h1 {
 
 .header {
 	&:extend(.container);
-	margin: 1.667em auto 5em auto;
+	margin: 0.5em auto 2em auto;
+
+	@media (min-width: @screen-sm) {
+		margin: 1.667em auto 5em auto;
+	}
 }
 
 .initials {
@@ -174,10 +178,10 @@ ul.social-links {
 // Hero
 
 .hero {
-	font-size: 49px;
+	font-size: 38px;
 
-	@media (max-width: @screen-xs-max) {
-		font-size: 32px;
+	@media (min-width: @screen-sm) {
+		font-size: 49px;
 	}
 
 	h1 {
@@ -200,10 +204,10 @@ ul.social-links {
 	}
 
 	p {
-		font-size: 0.47em;
+		font-size: 0.5em;
 
-		@media (max-width: @screen-xs-max) {
-			font-size: 0.6em;
+		@media (min-width: @screen-sm) {
+			font-size: 0.47em;
 		}
 	}
 }
