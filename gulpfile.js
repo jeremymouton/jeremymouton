@@ -1,33 +1,72 @@
-// ======================
-// GULPFILE
-// ======================
+/*
+ * Gulpfile
+ *
+ */
 
-// Load plugins
+
+/*
+ * Gulp Config
+ */
 var
   gulp         = require('gulp'),
+  gutil        = require('gulp-util'),
+  markdown     = require('gulp-markdown-to-json'),
+  jade         = require('gulp-jade'),
   less         = require('gulp-less'),
   bless        = require('gulp-bless'),
   minifycss    = require('gulp-minify-css'),
+  naturalsort  = require('gulp-natural-sort'),
+  fileinclude  = require('gulp-file-include'),
+  order        = require('gulp-order'),
+  pxtorem      = require('gulp-pxtorem'),
   uglify       = require('gulp-uglify'),
   rimraf       = require('gulp-rimraf'),
   concat       = require('gulp-concat'),
   notify       = require('gulp-notify'),
   rename       = require('gulp-rename'),
+  sourcemaps   = require('gulp-sourcemaps'),
   path         = require('path'),
   autoprefixer = require('gulp-autoprefixer'),
   livereload   = require('gulp-livereload');
 
-// CSS
-gulp.task('css', function() {
-  var stream = gulp
-    .src('src/less/styles.less')
+var paths = {
+  bower:       'bower_components',
+  destination: 'public',
+  posts:       'posts',
+  projects:    'projects',
+  source:      'src',
+  views:       'src/views',
+  components:  'src/components',
+  config:      'config'
+}
+
+
+/*
+ * Compile stylesheets
+ */
+gulp.task('css', ['css:compile', 'css:minify']);
+
+gulp.task('css:compile', function() {
+  return gulp
+    .src(paths.source + '/less/styles.less')
+    .pipe(sourcemaps.init())
     .pipe(less().on('error', notify.onError(function (error) {
       return 'Error compiling LESS: ' + error.message;
     })))
+    .pipe(pxtorem())
     .pipe(autoprefixer())
-    .pipe(gulp.dest('public/css'));
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.destination + '/css'))
+    .pipe(notify({ message: 'Successfully compiled LESS' }));
+});
 
-  return stream
+
+/*
+ * Minify stylesheets
+ */
+gulp.task('css:minify', ['css:compile'], function() {
+  return gulp
+    .src(paths.destination + '/css/styles.css')
     .pipe(minifycss())
     .pipe(rename(function (path) {
       if(path.extname === '.css') {
@@ -35,57 +74,152 @@ gulp.task('css', function() {
       }
     }))
     .pipe(bless())
-    .pipe(gulp.dest('public/css'))
-    .pipe(notify({ message: 'Successfully compiled LESS' }));
+    .pipe(gulp.dest(paths.destination + '/css'))
+    .pipe(notify({ message: 'Successfully minified CSS' }));
 });
 
-// JS
+
+/*
+ * Compile javascript
+ */
 gulp.task('js', function() {
   var scripts = [
-    'src/components/jquery/dist/jquery.js',
-    'src/components/momentjs/moment.js',
-    'src/js/main.js'
+    paths.bower  + '/zepto/zepto.js',
+    paths.bower  + '/zepto-detect/index.js',
+    paths.bower  + '/zepto-scroll/static/zepto.scroll.js',
+    paths.bower  + '/momentjs/moment.js',
+    paths.bower  + '/riot/riot+compiler.js',
+    paths.bower  + '/prism/prism.js',
+    paths.source + '/js/main.js'
   ];
 
-  var stream = gulp
+  return gulp
     .src(scripts)
-    .pipe(concat('script.js'));
-
-  return stream
-    .pipe(gulp.dest('public/js'))
+    .pipe(concat('script.js'))
+    .pipe(gulp.dest(paths.destination + '/js'))
     .pipe(uglify({ outSourceMap: true }))
     .pipe(rename(function (path) {
       if(path.extname === '.js') {
         path.basename += '.min';
       }
     }))
-    .pipe(gulp.dest('public/js'))
+    .pipe(gulp.dest(paths.destination + '/js'))
     .pipe(notify({ message: 'Successfully compiled JavaScript' }));
 });
 
-// Rimraf
+
+/*
+ * Templates
+ */
+gulp.task('templates', function() {
+  return gulp
+    .src(paths.views + '/*.jade')
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: paths.views
+    }))
+    .pipe(jade({
+      pretty: true
+    }))
+    .pipe(gulp.dest(paths.destination));
+});
+
+
+/*
+ * Components
+ */
+gulp.task('components', function() {
+  return gulp
+  .src(paths.components + '/**/*.tag')
+  .pipe(gulp.dest(paths.destination + '/components'))
+});
+
+
+/*
+ * Posts
+ */
+gulp.task('posts', function() {
+  return gulp
+    .src(paths.posts + '/*.md')
+    .pipe(gutil.buffer())
+    .pipe(markdown('posts.json'))
+    .pipe(gulp.dest(paths.destination + '/json'));
+});
+
+
+/*
+ * Projects
+ */
+gulp.task('projects', function() {
+  return gulp
+    .src(paths.projects + '/*.md')
+    .pipe(gutil.buffer())
+    .pipe(markdown('projects.json'))
+    .pipe(gulp.dest(paths.destination + '/json'));
+});
+
+
+/*
+ * Favicons
+ */
+gulp.task('favicons', function() {
+  return gulp
+    .src(paths.source + '/ico/*')
+    .pipe(gulp.dest(paths.destination + '/ico'))
+});
+
+
+/*
+ * Config
+ */
+gulp.task('config', function() {
+  return gulp
+    .src(paths.config + '/.htaccess')
+    .pipe(gulp.dest(paths.destination))
+});
+
+
+/*
+ * Cleanup
+ */
 gulp.task('rimraf', function() {
   return gulp
-    .src(['public/css', 'public/js'], {read: false})
+    .src([
+      paths.destination
+    ], {read: false})
     .pipe(rimraf());
 });
 
-// Default task
+
+/*
+ * Default
+ */
 gulp.task('default', ['rimraf'], function() {
-  gulp.start('css', 'js');
+  return gulp.start('css', 'js', 'templates', 'posts', 'projects', 'components', 'favicons', 'config');
 });
 
-// Watch
-gulp.task('watch', function() {
 
+/*
+ * Watch
+ */
+gulp.task('watch', function() {
   // Watch .less files
-  gulp.watch('src/less/**/*.less', ['css']);
+  gulp.watch(paths.source + '/less/**/*.less', ['css']);
 
   // Watch .js files
-  gulp.watch('src/js/**/*.js', ['js']);
+  gulp.watch(paths.source + '/js/**/*.js', ['js']);
+
+  // Watch .jade files
+  gulp.watch(paths.views + '/**/*.jade', ['templates']);
+
+  // Watch content
+  gulp.watch(paths.posts + '/**/*.md',  ['posts']);
+  gulp.watch(paths.projects + '/**/*.md',  ['projects']);
+
+  // Watch riot .tag files
+  gulp.watch(paths.source + '/components/**/*.tag',  ['components']);
 
   // Livereload
   livereload.listen();
-  gulp.watch('public/**/*').on('change', livereload.changed);
-  
+  gulp.watch(paths.destination + '/**/*').on('change', livereload.changed);
 });

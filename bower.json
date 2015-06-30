@@ -2,6 +2,12 @@
   "name": "jeremymouton",
   "dependencies": {
     "bootstrap": "~3",
-    "momentjs": "~2.9.0"
+    "momentjs": "~2.9.0",
+    "riot": "~2.1.0",
+    "prism": "~1.0.0",
+    "prism-themes": "https://github.com/PrismJS/prism-themes.git#b661e93abd80ec25fd7813f1a6bacf8b6247ae54",
+    "zepto": "~1.1.6",
+    "zepto-scroll": "https://github.com/suprMax/ZeptoScroll.git#82093fa3c24c344ee81423b9456edef9daccc7b9",
+    "zepto-detect": "https://raw.githubusercontent.com/madrobby/zepto/v1.1.6/src/detect.js"
   }
 }

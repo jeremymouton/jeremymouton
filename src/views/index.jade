@@ -1,0 +1,15 @@
+@@include('_blocks/_head.jade')
+@@include('_blocks/_header.jade')
+
+    main.main(role="main")
+      div.container
+        nav.section-menu
+          ul.inline-nav
+            li.section-menu__item.is-active
+              a(href="/") Thoughts
+            li.section-menu__item
+              a(href="work") Work
+
+        blog-posts
+
+@@include('_blocks/_footer.jade')
