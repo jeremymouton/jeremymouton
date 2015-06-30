@@ -95,7 +95,7 @@
           self.update({post: post})
           ga('send', 'pageview', slug)
         } else {
-          document.location.href='/404/';
+          document.location.href='/404';
         }
       }
     } else {
