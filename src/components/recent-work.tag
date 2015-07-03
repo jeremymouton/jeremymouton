@@ -27,6 +27,7 @@
       }
 
       self.update({projects: projects})
+      $('recent-work').addClass('is-visible')
     }
   })
 

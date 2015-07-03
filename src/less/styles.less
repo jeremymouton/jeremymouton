@@ -281,7 +281,16 @@ li.section-menu__item {
  * 
  */
 
-blog-posts { &:extend(.clearfix all); }
+blog-posts {
+  &:extend(.clearfix all);
+}
+
+.post,
+.post-aside {
+  .is-hidden();
+
+  blog-posts.is-visible & { .is-visible(); }
+}
 
 .post {
   h1 {
@@ -371,10 +380,15 @@ blog-posts { &:extend(.clearfix all); }
  */
 
 recent-work {
+  &.is-visible {
+    ul { .is-visible(); }
+  }
+  
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    .is-hidden();
   }
 
   li {
@@ -426,3 +440,20 @@ recent-work {
 .u-text-large { font-size: 1.5em; }
 
 .u-padding-top-large { padding-top: 100px; }
+
+
+/*
+ * Load fade in
+ * 
+ */
+
+.is-hidden() {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .6s ease;
+}
+
+.is-visible() {
+  visibility: visible;
+  opacity: 1;
+}
