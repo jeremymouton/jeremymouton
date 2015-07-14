@@ -136,18 +136,6 @@ gulp.task('components', function() {
 
 
 /*
- * Posts
- */
-gulp.task('posts', function() {
-  return gulp
-    .src(paths.posts + '/*.md')
-    .pipe(gutil.buffer())
-    .pipe(markdown('posts.json'))
-    .pipe(gulp.dest(paths.destination + '/json'));
-});
-
-
-/*
  * Projects
  */
 gulp.task('projects', function() {
@@ -195,7 +183,7 @@ gulp.task('rimraf', function() {
  * Default
  */
 gulp.task('default', ['rimraf'], function() {
-  return gulp.start('css', 'js', 'templates', 'posts', 'projects', 'components', 'favicons', 'config');
+  return gulp.start('css', 'js', 'templates', 'projects', 'components', 'favicons', 'config');
 });
 
 
@@ -213,7 +201,6 @@ gulp.task('watch', function() {
   gulp.watch(paths.views + '/**/*.jade', ['templates']);
 
   // Watch content
-  gulp.watch(paths.posts + '/**/*.md',  ['posts']);
   gulp.watch(paths.projects + '/**/*.md',  ['projects']);
 
   // Watch riot .tag files

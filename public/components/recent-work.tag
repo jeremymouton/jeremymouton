@@ -1,5 +1,7 @@
 <recent-work>
 
+  <h1>Recent Work</h1>
+
   <ul>
     <li each="{ projects }">
       <h2 class="project-title"><a href="{ url }" target="_blank">{ title }</a></h2>
