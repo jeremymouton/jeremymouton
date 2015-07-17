@@ -15,6 +15,8 @@
     <a class="button" href="//github.com/jeremymouton?tab=repositories" target="_blank">More on Github</a>
   </div>
 
+  $('main').addClass('is-loaded')
+
   var self = this,
       projects = []
 
@@ -30,6 +32,7 @@
 
       self.update({projects: projects})
       $('recent-work').addClass('is-visible')
+      $('recent-work ul').addClass('is-loaded')
     }
   })
 

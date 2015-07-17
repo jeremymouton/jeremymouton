@@ -29,10 +29,13 @@ var
   autoprefixer = require('gulp-autoprefixer'),
   livereload   = require('gulp-livereload');
 
+
+/*
+ * Paths
+ */
 var paths = {
   bower:       'bower_components',
   destination: 'public',
-  posts:       'posts',
   projects:    'projects',
   source:      'src',
   views:       'src/views',
@@ -55,7 +58,7 @@ gulp.task('css:compile', function() {
     })))
     .pipe(pxtorem())
     .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.destination + '/css'))
     .pipe(notify({ message: 'Successfully compiled LESS' }));
 });
@@ -158,6 +161,16 @@ gulp.task('favicons', function() {
 
 
 /*
+ * Fonts
+ */
+gulp.task('fonts', function() {
+  return gulp
+    .src(paths.source + '/fonts/*')
+    .pipe(gulp.dest(paths.destination + '/fonts'))
+});
+
+
+/*
  * Config
  */
 gulp.task('config', function() {
@@ -183,7 +196,16 @@ gulp.task('rimraf', function() {
  * Default
  */
 gulp.task('default', ['rimraf'], function() {
-  return gulp.start('css', 'js', 'templates', 'projects', 'components', 'favicons', 'config');
+  return gulp.start(
+    'css',
+    'js',
+    'fonts',
+    'templates',
+    'projects',
+    'components',
+    'favicons',
+    'config'
+  );
 });
 
 

@@ -1,0 +1,76 @@
+/*
+ * Header
+ * 
+ */
+
+.header {
+  background: #4E637A;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  min-height: 100vh;
+  // https://stackoverflow.com/questions/24944925/background-image-jumps-when-address-bar-hides-ios-android-mobile-chrome
+  transition: min-height 999999s;
+  display: table;
+  width: 100%;
+  
+  @media (min-width: @screen-sm) and (min-height: 530px) {
+    padding-top: 50px;
+    padding-bottom: 60px;
+    display: block;
+    min-height: 0;
+  }
+
+  > .container {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+
+    @media (min-width: @screen-sm) and (min-height: 530px) {
+      display: block;
+    }
+  }
+
+  a { color: #ffffff; }
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 29px;
+    font-weight: 300;
+    line-height: 180%;
+    text-transform: uppercase;
+  }
+
+  h1 span {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 49px;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+  }
+
+  .inline-nav {
+    margin-bottom: 80px;
+
+    a:after { .m-link-underline(#fff); }
+
+    @media (max-width: 300px) {
+      margin-bottom: 30px;
+
+      li {
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+      }
+    }
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 180%;
+    font-weight: 300;
+  }
+}

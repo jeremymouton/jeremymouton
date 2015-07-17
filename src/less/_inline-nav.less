@@ -1,0 +1,29 @@
+/*
+ * Inline nav
+ * 
+ */
+
+ul.inline-nav {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 15px;
+
+    &:first-child { margin-left: 0; }
+    &:last-child  { margin-right: 0; }
+  }
+
+  a {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    text-transform: lowercase;
+    &:extend(.animated-link all);
+  }
+  
+  li.is-active a:after { &:extend(.animated-link:hover:after all); }
+}
