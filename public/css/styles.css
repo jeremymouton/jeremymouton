@@ -649,10 +649,14 @@ recent-work ul.is-loaded:before,
   padding-bottom: 30px;
   text-align: center;
   min-height: 100vh;
-  -webkit-transition: min-height 999999s;
-          transition: min-height 999999s;
   display: table;
   width: 100%;
+}
+@media (max-width: 767px) {
+  .header {
+    -webkit-transition: min-height 999999s;
+            transition: min-height 999999s;
+  }
 }
 @media (min-width: 768px) and (min-height: 530px) {
   .header {

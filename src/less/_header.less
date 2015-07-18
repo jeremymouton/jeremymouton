@@ -11,10 +11,13 @@
   padding-bottom: 30px;
   text-align: center;
   min-height: 100vh;
-  // https://stackoverflow.com/questions/24944925/background-image-jumps-when-address-bar-hides-ios-android-mobile-chrome
-  transition: min-height 999999s;
   display: table;
   width: 100%;
+
+  @media (max-width: @screen-xs-max) {
+    // https://stackoverflow.com/questions/24944925/background-image-jumps-when-address-bar-hides-ios-android-mobile-chrome
+    transition: min-height 999999s;
+  }
   
   @media (min-width: @screen-sm) and (min-height: 530px) {
     padding-top: 50px;
