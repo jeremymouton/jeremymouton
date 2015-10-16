@@ -122,3 +122,29 @@ h3 { font-size: 19px; }
   padding: 80px 0;
   &:extend(.u-spinner all);
 }
+
+
+/*
+ * Hi
+ * 
+ */
+
+.hi {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -55px;
+  transition: all .8s ease-in;
+  opacity: 1;
+  display: inline-block;
+  padding-top: 40px;
+
+  span {
+    color: @primary-text-color;
+    border: 1px @primary-text-color solid;
+    padding: 10px 15px;
+    border-radius: 2px;
+  }
+
+  &.is-hidden { opacity: 0; }
+}
