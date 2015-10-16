@@ -1,19 +1,14 @@
-// Web components
+/*
+ * Web components
+ */
 
 riot.mount('*', {
   projects: 'json/projects.json'
 });
 
 
-/* ************************* */
 /*
- * Detect user location to suggest a different tour
- * 
- * Triggered if user didn't go through the landing page and
- * tour is different than detected country.
- *
- * Only checks US / GB.
- * 
+ * Detect 
  */
 
 $(function() {
