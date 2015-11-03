@@ -472,12 +472,6 @@ h3 {
 .sidebar p {
   line-height: 130%;
 }
-@media (min-width: 768px) {
-  .sidebar-inner {
-    max-width: 220px;
-    float: right;
-  }
-}
 /*
  * Sidebar title
  * 

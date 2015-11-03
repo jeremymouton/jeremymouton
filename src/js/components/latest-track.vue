@@ -9,10 +9,11 @@
     background: #101010;
     border-radius: 2px;
     line-height: 100%;
+    text-align: left;
     text-decoration: none;
     margin: 30px auto 0;
     padding: 5px;
-    text-align: left;
+    max-width: 250px;
   }
 
   .latest-track-cover {
@@ -76,9 +77,15 @@ module.exports = {
     }
   },
 
+  ready: function() {
+    self = this
+    setInterval( function() {
+      self.getData()
+    }, 20000)
+  },
+
   created: function() {
     this.getData()
-    setTimeout(this.getData(), 30000)
   },
 
   methods: {
