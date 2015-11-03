@@ -27,8 +27,11 @@ var
   sourcemaps   = require('gulp-sourcemaps'),
   path         = require('path'),
   autoprefixer = require('gulp-autoprefixer'),
-  livereload   = require('gulp-livereload');
-
+  livereload   = require('gulp-livereload'),
+  source       = require('vinyl-source-stream'),
+  buffer       = require('vinyl-buffer'),
+  browserify   = require('browserify'),
+  vueify       = require('vueify');
 
 /*
  * Paths
@@ -39,9 +42,28 @@ var paths = {
   projects:    'projects',
   source:      'src',
   views:       'src/views',
-  components:  'src/components',
   config:      'config'
-}
+};
+
+
+/*
+ * Compile javascript with Browserify
+ * Apply Vueify transforms for *.vue files
+ */
+gulp.task('js', function() {
+  var b = browserify({
+    entries: paths.source + '/js/app.js',
+    debug: true,
+    transform: [vueify]
+  });
+
+  return b.bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .on('error', gutil.log)
+    .pipe(gulp.dest(paths.destination + '/js'));
+});
 
 
 /*
@@ -56,7 +78,9 @@ gulp.task('css:compile', function() {
     .pipe(less().on('error', notify.onError(function (error) {
       return 'Error compiling LESS: ' + error.message;
     })))
-    .pipe(pxtorem())
+    .pipe(pxtorem({
+      root_value: 15
+    }))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.destination + '/css'))
@@ -83,35 +107,6 @@ gulp.task('css:minify', ['css:compile'], function() {
 
 
 /*
- * Compile javascript
- */
-gulp.task('js', function() {
-  var scripts = [
-    paths.bower  + '/zepto/zepto.js',
-    paths.bower  + '/zepto-detect/index.js',
-    paths.bower  + '/zepto-scroll/static/zepto.scroll.js',
-    paths.bower  + '/momentjs/moment.js',
-    paths.bower  + '/riot/riot+compiler.js',
-    paths.bower  + '/prism/prism.js',
-    paths.source + '/js/main.js'
-  ];
-
-  return gulp
-    .src(scripts)
-    .pipe(concat('script.js'))
-    .pipe(gulp.dest(paths.destination + '/js'))
-    .pipe(uglify({ outSourceMap: true }))
-    .pipe(rename(function (path) {
-      if(path.extname === '.js') {
-        path.basename += '.min';
-      }
-    }))
-    .pipe(gulp.dest(paths.destination + '/js'))
-    .pipe(notify({ message: 'Successfully compiled JavaScript' }));
-});
-
-
-/*
  * Templates
  */
 gulp.task('templates', function() {
@@ -125,16 +120,6 @@ gulp.task('templates', function() {
       pretty: true
     }))
     .pipe(gulp.dest(paths.destination));
-});
-
-
-/*
- * Components
- */
-gulp.task('components', function() {
-  return gulp
-  .src(paths.components + '/**/*.tag')
-  .pipe(gulp.dest(paths.destination + '/components'))
 });
 
 
@@ -156,7 +141,7 @@ gulp.task('projects', function() {
 gulp.task('favicons', function() {
   return gulp
     .src(paths.source + '/ico/*')
-    .pipe(gulp.dest(paths.destination + '/ico'))
+    .pipe(gulp.dest(paths.destination + '/ico'));
 });
 
 
@@ -166,7 +151,7 @@ gulp.task('favicons', function() {
 gulp.task('fonts', function() {
   return gulp
     .src(paths.source + '/fonts/*')
-    .pipe(gulp.dest(paths.destination + '/fonts'))
+    .pipe(gulp.dest(paths.destination + '/fonts'));
 });
 
 
@@ -176,7 +161,7 @@ gulp.task('fonts', function() {
 gulp.task('config', function() {
   return gulp
     .src(paths.config + '/.htaccess')
-    .pipe(gulp.dest(paths.destination))
+    .pipe(gulp.dest(paths.destination));
 });
 
 
@@ -200,11 +185,10 @@ gulp.task('default', ['rimraf'], function() {
     'css',
     'js',
     'fonts',
-    'templates',
-    'projects',
-    'components',
     'favicons',
-    'config'
+    'templates',
+    'config',
+    'projects'
   );
 });
 
@@ -219,14 +203,14 @@ gulp.task('watch', function() {
   // Watch .js files
   gulp.watch(paths.source + '/js/**/*.js', ['js']);
 
+  // Watch .vue files
+  gulp.watch(paths.source + '/js/**/*.vue', ['js']);
+
   // Watch .jade files
   gulp.watch(paths.views + '/**/*.jade', ['templates']);
 
   // Watch content
   gulp.watch(paths.projects + '/**/*.md',  ['projects']);
-
-  // Watch riot .tag files
-  gulp.watch(paths.source + '/components/**/*.tag',  ['components']);
 
   // Livereload
   livereload.listen();

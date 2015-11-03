@@ -1,7 +1,10 @@
-/*!
+/***
  * Project: jeremymouton.com
  * Author: Jeremy Mouton
  */
+
+@import "_variables";
+
 
 /*
  * Bower Components
@@ -10,141 +13,42 @@
 
 @import "_bootstrap";
 
-/* Prism */
 
-@import (inline) "@{bower_components}/prism-themes/themes/prism-xonokai.css";
-@import "_prism-overrides";
+/*
+ * Plugins
+ * 
+ */
+
+/* Prism */
+// @import (inline) "@{bower_components}/prism-themes/themes/prism-xonokai.css";
+// @import "_plugins/_prism";
 
 
 /*
  * Base
- */
-
-@import "_variables";
-@import "_utilities";
-@import "_states";
-@import "_webfonts";
-@import "_animations";
-
-
-/*
- * Components
  *
  */
 
-@import "_buttons";
-@import "_header";
-@import "_inline-nav";
-@import "_recent-work";
+@import "_base/_global";
+@import "_base/_webfonts";
+@import "_base/_headings";
 
 
 /*
- * Styles
+ * Blocks
  * 
  */
 
-* {
-  .box-sizing(border-box);
-
-  &:before,
-  &:after { .box-sizing(border-box); }
-}
-
-html,
-body { font-size: 16px; }
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  color: @primary-text-color;
-  background-color: #fff;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  color: @primary-text-color;
-}
-
-hr {
-  border: none;
-  border-bottom: 1px lighten(@secondary-text-color, 20%) solid;
-  margin: 50px auto;
-
-  @media (min-width: @screen-sm) {
-    width: 60%;
-  }
-}
-
-.container {
-  &:extend(.container-fluid);
-  max-width: 720px;
-}
-
-.m-link-underline(@color) {
-  border-bottom: 1px @color solid;
-  text-decoration: none;
-}
-
-.animated-link {
-  text-decoration: none;
-
-  &:after {
-    content: '';
-    display: block;
-    .m-link-underline(@primary-text-color);
-    transition: width .2s ease;
-    width: 0;
-  }
-
-  &:hover:after { width: calc(100% - 2.5em); }
-}
+@import "_blocks/_sidebar";
+@import "_blocks/_main";
 
 
 /*
- * Headings
+ * Helpers
  * 
  */
 
-h1 { font-size: 26px; }
-
-h2 { font-size: 22px; }
-
-h3 { font-size: 19px; }
-
-
-/*
- * Main
- * 
- */
-
-.main {
-  padding: 80px 0;
-  &:extend(.u-spinner all);
-}
-
-
-/*
- * Hi
- * 
- */
-
-.hi {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -55px;
-  transition: all .8s ease-in;
-  opacity: 1;
-  display: inline-block;
-  padding-top: 40px;
-
-  span {
-    color: @primary-text-color;
-    border: 1px @primary-text-color solid;
-    padding: 10px 15px;
-    border-radius: 2px;
-  }
-
-  &.is-hidden { opacity: 0; }
-}
+@import "_helpers/_utilities";
+@import "_helpers/_states";
+@import "_helpers/_animations";
+@import "_helpers/_mixins";

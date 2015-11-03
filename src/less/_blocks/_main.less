@@ -1,0 +1,41 @@
+/*
+ * Main
+ * 
+ */
+
+.svg-circles {
+  width: 30px;
+  margin: 0 auto 20px auto;
+  display: block;
+
+  path {
+    fill: #ddd;
+  }
+}
+
+.wrapper {
+  @media (min-width: @screen-sm) and (max-width: 1000px) {
+    padding-left: 300px;
+  }
+
+  @media (min-width: @screen-md) {
+    padding-left: 30%;
+  }
+}
+
+.main {
+  .make-xs-column(12);
+  
+  @media (min-width: @screen-sm) {
+    float: none;
+    padding: 60px 50px;
+  }
+}
+
+.main-container {}
+
+.main-container--narrow {
+  @media (min-width: @screen-lg) {
+    max-width: 700px;
+  }
+}

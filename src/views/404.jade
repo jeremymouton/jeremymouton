@@ -1,12 +1,11 @@
 @@include('_blocks/_head.jade')
-@@include('_blocks/_header.jade')
+@@include('_blocks/_sidebar.jade')
 
-    main.main(role="main")
-      div.container
-        
-        div.u-align-center
-          h1 404
-          p You must be messing with things because there are very few ways to end up here...
-          a(href="/") Here's a way out.
+      main.main(role="main")
+        div.main-container.main-container--narrow
+          div.u-align-center
+            h1 404
+            p You must be messing with things because there are very few ways to end up here...
+            a(href="/") Here's a way out
 
 @@include('_blocks/_footer.jade')

@@ -18,6 +18,21 @@
     "gulp-markdown-to-json": "^0.2.1",
     "gulp-util": "^3.0.5",
     "gulp-order": "^1.1.1",
-    "gulp-natural-sort": "^0.1.0"
+    "gulp-natural-sort": "^0.1.0",
+    "vue-hot-reload-api": "^1.2.1",
+    "vueify-insert-css": "^1.0.0",
+    "babel-runtime": "^5.8.29",
+    "vue": "^1.0.4",
+    "vue-router": "^0.7.5",
+    "vueify": "^5.0.1",
+    "browserify": "^12.0.1",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "jade": "^1.11.0",
+    "less": "^2.5.3"
+  },
+  "dependencies": {
+    "zepto-browserify": "^1.1.6-1",
+    "moment": "^2.10.6"
   }
 }

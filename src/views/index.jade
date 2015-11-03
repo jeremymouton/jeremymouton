@@ -1,9 +1,8 @@
 @@include('_blocks/_head.jade')
-@@include('_blocks/_header.jade')
+@@include('_blocks/_sidebar.jade')
 
-    main.main(role="main")
-      div.container
-        
-        recent-work
+      main.main(role="main")
+        div.main-container.main-container--narrow
+          router-view
 
 @@include('_blocks/_footer.jade')
