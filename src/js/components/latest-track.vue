@@ -3,54 +3,6 @@
  * 
  */
 
-<style lang="less" scoped>
-  .latest-track {
-    display: table;
-    background: #101010;
-    border-radius: 2px;
-    line-height: 100%;
-    text-align: left;
-    text-decoration: none;
-    margin: 30px auto 0;
-    padding: 5px;
-    max-width: 250px;
-  }
-
-  .latest-track-cover {
-    img {
-      width: 75px;
-      height: auto;
-    }
-  }
-  
-  .latest-track-cover,
-  .latest-track-info {
-    display: table-cell;
-    vertical-align: top;
-  }
-
-  .latest-track-info {
-    font-size: 11px;
-    line-height: 120%;
-    padding: 5px 8px;
-  }
-
-  .latest-track-name {
-    font-weight: bold;
-  }
-
-  .latest-track-name,
-  .latest-track-artist {
-    display: block;
-  }
-
-  .latest-track-date {
-    display: block;
-    font-size: 9px;
-    margin-top: 5px;
-  }
-</style>
-
 <template lang="jade">
 a.latest-track(v-bind:href="feedUrl" target="_blank" title="{{trackName}} by {{trackArtist}} on Last.fm")
   div.latest-track-cover
