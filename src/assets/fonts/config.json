@@ -1,0 +1,68 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "5d2d07f112b8de19f2c0dbfec3e42c05",
+      "css": "spin5",
+      "code": 59392,
+      "src": "fontelico"
+    },
+    {
+      "uid": "0f6a2573a7b6df911ed199bb63717e27",
+      "css": "github-circled",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e9107949dd6c9e8ab2b29ae07156e38c",
+      "css": "linkedin",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fb4794d89b77ab712ad56c0dc4c76c6b",
+      "css": "spotify",
+      "code": 59396,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "627abcdb627cb1789e009c08e2678ef9",
+      "css": "twitter",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "275c1799683e3fa747e248f78f7f7a21",
+      "css": "aspen",
+      "code": 59397,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M419.7 208.2C278.7 273.8 157.4 398.4 157.4 598.4 157.4 696.7 185.2 775.4 229.5 837.7H0V1001.6H573.8C803.3 1001.6 1000 859 1000 596.7V0L418 208.2ZM478.7 688.5H331.1V541H478.7V688.5ZM777 836.1H482V688.5H629.5V541H482V390.2H629.5V242.6H777V836.1Z",
+        "width": 997
+      },
+      "search": [
+        "aspen"
+      ]
+    },
+    {
+      "uid": "0f819fb42e2373ab7498288e9a0d72dc",
+      "css": "location",
+      "code": 59398,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M500 0C306.5 0 150 156.5 150 350 150 612.7 500 1000 500 1000S850 612.5 850 350C850 156.5 693.5 0 500 0ZM500 474.9C430.9 474.9 375.1 418.9 375.1 350 375.1 281 431.1 225.1 500 225.1S624.9 281.2 624.9 350C624.9 418.9 568.9 474.9 500 474.9Z",
+        "width": 1000
+      },
+      "search": [
+        "location"
+      ]
+    }
+  ]
+}
