@@ -17,3 +17,17 @@ export default {
 </script>
 
 <style src="assets/less/styles.less" lang="less"></style>
+
+<style lang="less">
+body {
+  @media (min-height: 500px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#app {
+  padding-bottom: 40px;
+}
+</style>

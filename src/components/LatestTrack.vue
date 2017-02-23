@@ -7,7 +7,7 @@
     target="_blank"
   >
     <div class="latest-track__cover" v-show="albumCover">
-      <img :src="albumCover" alt="">
+      <img :src="albumCover" :alt="title" width="60" height="60">
     </div>
     <div class="latest-track__info">
       <span class="latest-track__name">{{ trackName }}</span>
@@ -70,20 +70,22 @@ export default {
 
 <style lang="less">
 .latest-track {
-  display: table;
-  border: 1px #dddde4 solid;
-  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 100%;
   text-align: left;
   text-decoration: none;
   margin: 30px auto 0;
   padding: 5px;
+  width: 100%;
   max-width: 250px;
+  transition: max-width .3s ease;
 }
 
 .latest-track__cover {
   img {
-    width: 75px;
+    width: 60px;
     height: auto;
   }
 }

@@ -130,7 +130,7 @@ export default {
   margin-bottom: 40px;
 
   @media (min-width: @screen-sm) {
-    margin: 50px 0 80px 0;
+    margin: 50px 0 0 0;
   }
 }
 
