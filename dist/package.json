@@ -1,0 +1,10 @@
+{
+  "name": "jeremymouton",
+  "version": "1.0.0",
+  "description": "jeremymouton.com",
+  "author": "Jeremy Mouton <jeremy@aspendigital.com>",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install express"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "name": "jeremymouton",
-  "dependencies": {
-    "bootstrap": "~3",
-    "prism": "~1.0.0",
-    "prism-themes": "https://github.com/PrismJS/prism-themes.git#b661e93abd80ec25fd7813f1a6bacf8b6247ae54",
-  }
-}
