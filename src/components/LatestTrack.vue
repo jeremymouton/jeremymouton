@@ -6,13 +6,18 @@
     :title="title"
     target="_blank"
   >
-    <div class="latest-track__cover" v-show="albumCover">
-      <img :src="albumCover" :alt="title" width="60" height="60">
+    <div
+      class="latest-track__cover"
+      :class="{ 'latest-track__cover--is-spinning': !date }"
+      v-show="trackCover"
+    >
+      <img :src="trackCover" :alt="title" width="60" height="60">
     </div>
     <div class="latest-track__info">
+      <span v-show="playing" class="latest-track__date">{{ playing }}</span>
       <span class="latest-track__name">{{ trackName }}</span>
       <span class="latest-track__artist">by {{ trackArtist }}</span>
-      <span class="latest-track__date">{{ date }}</span>
+      <span v-show="date" class="latest-track__date">{{ date }}</span>
     </div>
   </a>
 </template>
@@ -29,8 +34,9 @@ export default {
       feedUrl: null,
       trackName: null,
       trackArtist: null,
+      trackCover: null,
       date: null,
-      albumCover: null,
+      playing: null,
     }
   },
   created() {
@@ -54,14 +60,15 @@ export default {
         self.feedUrl = lastfm.url
         self.trackName = lastfm.name
         self.trackArtist = lastfm.artist['#text']
+        self.trackCover = lastfm.image[2]['#text']
 
         if (typeof lastfm.date !== 'undefined') {
-          self.date = `played ${moment.unix(lastfm.date.uts).fromNow()}`
+          self.date = `${moment.unix(lastfm.date.uts).fromNow()}`
+          self.playing = 'Last listened to'
         } else {
-          self.date = 'now playing...'
+          self.date = null
+          self.playing = 'I\'m currently listening to'
         }
-
-        self.albumCover = lastfm.image[2]['#text']
       }, 'jsonp')
     },
   },
@@ -80,14 +87,29 @@ export default {
   padding: 5px;
   width: 100%;
   max-width: 250px;
-  transition: max-width .3s ease;
+  transition: all .3s ease;
+
+  &:hover { transform: translate3d(0, -2px, 0); }
 }
 
 .latest-track__cover {
   img {
     width: 60px;
     height: auto;
+    border-radius: 3px;
+    transition: all .12s ease;
   }
+}
+
+.latest-track__cover--is-spinning {
+  img {
+    border-radius: 100%;
+    animation: spin 7s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
 }
 
 .latest-track__cover,
@@ -115,6 +137,9 @@ export default {
 .latest-track__date {
   display: block;
   font-size: 9px;
-  margin-top: 5px;
+  margin: 5px 0;
+
+  &:first-child { margin-top: 0; }
+  &:last-child  { margin-bottom: 0; }
 }
 </style>

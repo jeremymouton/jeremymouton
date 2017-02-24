@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <site-header></site-header>
-    <router-view></router-view>
+    <main role="main">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
