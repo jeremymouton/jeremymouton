@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/jeremymouton
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.jeremymouton.com
+  * I am jeremymouton (https://keybase.io/jeremymouton) on keybase.
+  * I have a public key ASBDTJ1IEvoxU2Ht5nYpi0HZUmirNbAZEFL4QlcQdkslnQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120434c9d4812fa315361ede676298b41d95268ab35b0191052f8425710764b259d0a",
+      "host": "keybase.io",
+      "kid": "0120434c9d4812fa315361ede676298b41d95268ab35b0191052f8425710764b259d0a",
+      "uid": "a6a0ec0a015448be74e7df6cb7f4a719",
+      "username": "jeremymouton"
+    },
+    "merkle_root": {
+      "ctime": 1508864892,
+      "hash": "7f9e2c1257454d0cd26e8eab0b0c607ff1fdb0aee1406e181823995c8c675a26c7f90c27013018c13680c370e9fe1c7c0c4e6fb1cd85bcf4739bbe6167fbd171",
+      "hash_meta": "9f498502535d8e331a66eb6f1553d0d4149a097893f036620dc4a656b22439c3",
+      "seqno": 1623568
+    },
+    "service": {
+      "hostname": "www.jeremymouton.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1508864935,
+  "expire_in": 504576000,
+  "prev": "ab759332b6b77342932635af4fcf122294ea9228b0f2462717f9534b9e7dafba",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgQ0ydSBL6MVNh7eZ2KYtB2VJoqzWwGRBS+EJXEHZLJZ0Kp3BheWxvYWTFA1B7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNDM0YzlkNDgxMmZhMzE1MzYxZWRlNjc2Mjk4YjQxZDk1MjY4YWIzNWIwMTkxMDUyZjg0MjU3MTA3NjRiMjU5ZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNDM0YzlkNDgxMmZhMzE1MzYxZWRlNjc2Mjk4YjQxZDk1MjY4YWIzNWIwMTkxMDUyZjg0MjU3MTA3NjRiMjU5ZDBhIiwidWlkIjoiYTZhMGVjMGEwMTU0NDhiZTc0ZTdkZjZjYjdmNGE3MTkiLCJ1c2VybmFtZSI6ImplcmVteW1vdXRvbiJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUwODg2NDg5MiwiaGFzaCI6IjdmOWUyYzEyNTc0NTRkMGNkMjZlOGVhYjBiMGM2MDdmZjFmZGIwYWVlMTQwNmUxODE4MjM5OTVjOGM2NzVhMjZjN2Y5MGMyNzAxMzAxOGMxMzY4MGMzNzBlOWZlMWM3YzBjNGU2ZmIxY2Q4NWJjZjQ3MzliYmU2MTY3ZmJkMTcxIiwiaGFzaF9tZXRhIjoiOWY0OTg1MDI1MzVkOGUzMzFhNjZlYjZmMTU1M2QwZDQxNDlhMDk3ODkzZjAzNjYyMGRjNGE2NTZiMjI0MzljMyIsInNlcW5vIjoxNjIzNTY4fSwic2VydmljZSI6eyJob3N0bmFtZSI6Ind3dy5qZXJlbXltb3V0b24uY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zMyJ9LCJjdGltZSI6MTUwODg2NDkzNSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiJhYjc1OTMzMmI2Yjc3MzQyOTMyNjM1YWY0ZmNmMTIyMjk0ZWE5MjI4YjBmMjQ2MjcxN2Y5NTM0YjllN2RhZmJhIiwic2Vxbm8iOjIyLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQO34c7KtInBddNWm13f9EEYtn90yAdBig6AF4UEyFwhHhkVxGvqr5QC4r3vYv86AjzKHlfZVlOZ0HUBhMK0AEA+oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDMWn+NaoA4Ig18og8hgBGZvPPoYqjTMa75KbJ2yc85GaN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jeremymouton
+
+==================================================================
