@@ -2,6 +2,8 @@
 
 > jeremymouton.com
 
+[![AI token usage](https://tokscale.ai/api/embed/jeremymouton/svg)](https://tokscale.ai/u/jeremymouton)
+
 ## Build Setup
 
 ``` bash
